@@ -2,10 +2,12 @@ const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 8000;
-const userRoutes = require("./routes/userRoutes");
-const { errorHandler } = require("./middleware/errorMiddleware");
-const connectDB = require("./config/db");
 const app = express();
+
+const connectDB = require("./config/db");
+const { errorHandler } = require("./middleware/errorMiddleware");
+const userRoutes = require("./routes/userRoutes");
+const ticketRoutes = require("./routes/ticketRoutes");
 
 connectDB();
 
@@ -17,5 +19,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
+app.use("/api/tickets", ticketRoutes);
 app.use(errorHandler);
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
