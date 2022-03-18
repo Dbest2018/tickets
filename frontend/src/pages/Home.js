@@ -10,7 +10,7 @@ function Home() {
       </section>
 
       <Link to="/new-ticket" className="btn btn-reverse btn-block">
-        <FaQuestionCircle /> Create New Iicket
+        <FaQuestionCircle /> Create New Ticket
       </Link>
       <Link to="/tickets" className="btn  btn-block">
         <FaTicketAlt /> View My Tickets
