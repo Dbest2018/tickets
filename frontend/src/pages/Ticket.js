@@ -6,7 +6,11 @@ import Modal from "react-modal";
 import { FaPlus } from "react-icons/fa";
 
 import { getTicket, closeTicket } from "../features/tickets/ticketSlice";
-import { getNotes, reset as notesReset } from "../features/notes/noteSlice";
+import {
+  getNotes,
+  createNote,
+  reset as notesReset,
+} from "../features/notes/noteSlice";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import NoteItem from "../components/NoteItem";
@@ -63,6 +67,8 @@ function Ticket() {
 
   const submitNote = (e) => {
     e.preventDefault();
+    dispatch(createNote({ noteText, ticketId }));
+    setNoteText("");
     closeModal();
   };
 
